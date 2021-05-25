@@ -2,7 +2,7 @@ package ru.netology;
 
 public class ViewsInfo {
     private int count;
-    private int alreadyView;
+    private int alreadyView; //переменной нет в вк
 
     public int getCount() {
         return count;

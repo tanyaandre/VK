@@ -11,13 +11,14 @@ public class PostVK {
     private String text;
     private int replyOwnerId; //идентификатор владельца записи, исходная запись
     private int replyPostId; //идентификатор записи, испходная запись
-    private int friendsOnly; //опция записи "только друзья"
+    private int frendsOnly; //опция записи "только друзья"
     private LikesInfo likesInfo;
     private RepostsInfo repostsInfo;
     private int viewsInfo;
     private CommentsInfo commentsInfo;
     private Object postSource;
     private String postType; //тип записи: post, copy, reply, postpone, suggest
+    private Geo geo; // геолокация
     private int signerId; // идентификатор автора, если запись от сообщества, а подписана пользователем
     private int canPin; //может ли текущий пользователь закрепить запись
     private int favorite;
@@ -32,7 +33,7 @@ public class PostVK {
 
     public PostVK(int id, int ownerId, Author author, int createdById, Date date, String text, int replyOwnerId,
                   int replyPostId, int frendsOnly, LikesInfo likesInfo, RepostsInfo repostsInfo, int viewsInfo,
-                  CommentsInfo commentsInfo, Object postSource, String postType, int signerId, int canPin,
+                  CommentsInfo commentsInfo, Object postSource, String postType, Geo geo, int signerId, int canPin,
                   int favorite, int canEdit, int canDelete, int isPinned, int markedAsAds, int postponedId) {
         this.id = id;
         this.ownerId = ownerId;
@@ -42,13 +43,14 @@ public class PostVK {
         this.text = text;
         this.replyOwnerId = replyOwnerId;
         this.replyPostId = replyPostId;
-        this.friendsOnly = frendsOnly;
+        this.frendsOnly = frendsOnly;
         this.likesInfo = likesInfo;
         this.repostsInfo = repostsInfo;
         this.viewsInfo = viewsInfo;
         this.commentsInfo = commentsInfo;
         this.postSource = postSource;
         this.postType = postType;
+        this.geo = geo;
         this.signerId = signerId;
         this.canPin = canPin;
         this.favorite = favorite;
@@ -124,11 +126,11 @@ public class PostVK {
     }
 
     public int getFrendsOnly() {
-        return friendsOnly;
+        return frendsOnly;
     }
 
     public void setFrendsOnly(int frendsOnly) {
-        this.friendsOnly = frendsOnly;
+        this.frendsOnly = frendsOnly;
     }
 
     public LikesInfo getLikesInfo() {
@@ -177,6 +179,14 @@ public class PostVK {
 
     public void setPostType(String postType) {
         this.postType = postType;
+    }
+
+    public Geo getGeo() {
+        return geo;
+    }
+
+    public void setGeo(Geo geo) {
+        this.geo = geo;
     }
 
     public int getSignerId() {
